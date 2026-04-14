@@ -1,3 +1,4 @@
+# Approach 1: Text classification using TfIdf w/ scikit
 - We have 3 different classes, positive, negative, and mixed
 - Used an LLM to generate 300 fake tweets for testing for each candidate
 - Data is cleaned
@@ -16,3 +17,6 @@
 		Precision: [ Negative: 0.42857142857142855 | Mixed: 0.2962962962962963 | Positive: 0.7142857142857143 ]
 		Recall: [ Negative: 0.8852459016393442 | Mixed: 0.13333333333333333 | Positive: 0.1271186440677966 ]
 		F1 Score: [ Negative: 0.5775401069518716 | Mixed: 0.1839080459770115 | Positive: 0.2158273381294964 ]
+	- Playing with the classifier parameters, we can get around 60 percent classification accuracy, with better precision, recall, and f-scores.
+# Approach 2: Deep Learning sentiment analysis w/ TensorFlow
+- Scikit approach was good but needed lots of tweaking. If we can do a deep learning method maybe we can get better results without much effort.
