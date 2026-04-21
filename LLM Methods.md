@@ -1,6 +1,6 @@
 - Want to write 3 different prompts to classify tweets into positive, negative, and mixed classes
 - Used Claude w/ Sonnet 4.6 model
-- Prompts:
+- ### Prompts:
 	- 1) I've given you a training data file "training data file" containing real tweets about the 2012 presidential candidates Barack Obama and Mitt Romney. That file contains the date, time, a tweet, and whether or not it was positive, negative, or mixed. I've also given you a test data file "test data file" containing more tweets about each candidate. Use the tweets in the training data file to classify the tweets for each candidate as positive, negative, or mixed. Place the results into a xlsx file, with one sheet for each candidate, where the first column is the tweet, and the second column is the class. 
 		- Claude immediately noticed that the test data already has class labels. Oops.
 		- Also it noticed that the training data had 4 classes

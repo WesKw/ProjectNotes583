@@ -1,4 +1,4 @@
-# Approach 1: Text classification using TfIdf w/ scikit
+## Approach 1: Text classification using TfIdf w/ scikit
 - We have 3 different classes, positive, negative, and mixed
 - Used an LLM to generate 300 fake tweets for testing for each candidate
 - Data is cleaned
@@ -18,9 +18,9 @@
 		Recall: [ Negative: 0.8852459016393442 | Mixed: 0.13333333333333333 | Positive: 0.1271186440677966 ]
 		F1 Score: [ Negative: 0.5775401069518716 | Mixed: 0.1839080459770115 | Positive: 0.2158273381294964 ]
 	- Playing with the classifier parameters, we can get around 60 percent classification accuracy, with better precision, recall, and f-scores.
-	- The real thing to learn here is that using generated tweets for testing is actually kind of bad and has worse accuracy than pulling test data from the training set
 # Approach 2: Deep Learning sentiment analysis w/ TensorFlow
 - Scikit approach was good but needed lots of tweaking with the "bag of words" approach. If we can do a deep learning method maybe we can get better results without much effort.
+- This time we're going to do a deep learning method but split the training data into test and validation sets.
 - Start off by looking at sentiment analysis with text data https://www.tensorflow.org/tutorials/keras/text_classification
 	- We adapt the tutorial to work with the tweet data by using a multiclass loss function
 	- We modify the NN params too
