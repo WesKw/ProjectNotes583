@@ -17,7 +17,7 @@
 		Precision: [ Negative: 0.42857142857142855 | Mixed: 0.2962962962962963 | Positive: 0.7142857142857143 ]
 		Recall: [ Negative: 0.8852459016393442 | Mixed: 0.13333333333333333 | Positive: 0.1271186440677966 ]
 		F1 Score: [ Negative: 0.5775401069518716 | Mixed: 0.1839080459770115 | Positive: 0.2158273381294964 ]
-	- Playing with the classifier parameters, we can get around 60 percent classification accuracy, with better precision, recall, and f-scores.
+	- Playing with the classifier parameters, we can get around 60 percent classification accuracy, with better precision, recall, and f-scores. However, there is a possibility of overfitting the data.
 # Approach 2: Deep Learning sentiment analysis w/ TensorFlow
 - Scikit approach was good but needed lots of tweaking with the "bag of words" approach. If we can do a deep learning method maybe we can get better results without much effort.
 - This time we're going to do a deep learning method but split the training data into test and validation sets.
@@ -34,4 +34,13 @@
 	- Model gets around 60% accuracy which is pretty  average.
 	- We can try using multiple binary classifiers to get a better accuracy.
 - ### What if we try using multiple binary classifiers?
-	- E.g.: We train 2 classifiers per candidate. One for positive classes, and one for negative classes.
+	- E.g.: We train 2 classifiers per candidate. One for positive classes, and one for negative classes. Then figure out which class is the most likely based on the outputs of both classifiers.
+	- This might be slightly more effective than using 1 model for 3 classes
+	- Some weird caveats
+		- doing multiple binary classifiers achieves up to a .90 accuracy when using a subset of its own data as test data. However, plugging generated tweets as custom test data the accuracy drops dramatically. this might be because the generated tweets from the LLM aren't really indicative of actual tweets?
+		- The value loss increases a bit but if we stop at 15 epochs then it's fine.........
+		- I suppose it remains to be seen whether or not the classifier is good on the actual data during the demo time....
+		- there's a lot more negative tweets about romney maybe we need to fix the class distribution
+		- Maybe we need to downsample the data to get a more even distribution of classes
+		- Okay I could try modifying the class distributioncd  but messing with masking actually solved most of the problem. Both classifiers get around 80% now
+		- The final 
