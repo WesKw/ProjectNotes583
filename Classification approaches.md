@@ -27,9 +27,11 @@
 	- Initial accuracy is just okay, just a little bit better than random. We can definitely improve this
 - ### Improving the sentiment analysis model
 	- I initially tried looking at stopwords - actually bad idea we kind of need these words for sentiment analysis. These are only good for web retrieval / information search - many stop words lists include negation words which absolutely modify the sentiment analysis.
-	- I figured maybe the tweet dataset is imbalanced - it's actually pretty close to evenly distributed among all classes
-	- 
+	- I figured maybe the tweet dataset is imbalanced - it's actually pretty close to evenly distributed among all classes so this probably isn't an issue
 	- We can try modifying how we're actually setting up the model.
 	- We can also try leveraging existing LLMs to build a better sentiment analysis tool, but I would like to stick with this current deep learning approach.
 	- This approach is already significantly better than the original sci-kit approach and it did not require much tweaking - the scikit model was *worse* than random initially - the naive bayes approach is pretty poor for sentiment analysis
-	- 
+	- Model gets around 60% accuracy which is pretty  average.
+	- We can try using multiple binary classifiers to get a better accuracy.
+- ### What if we try using multiple binary classifiers?
+	- E.g.: We train 2 classifiers per candidate. One for positive classes, and one for negative classes.
